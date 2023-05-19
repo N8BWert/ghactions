@@ -1,0 +1,13 @@
+name: python-action-test.yml
+run-name: Run Simple Python Script
+on: [push]
+jobs:
+    run-python-script:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+            - uses: actions/setup-python@v4
+              with:
+                python-version: '3.10'
+            - run: python script.py
+            - run: python --version
