@@ -9,7 +9,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Create Changelog
-              uses: heinrichreimer/github-changelog-generator-action@V2.3
+              uses: heinrichreimer/github-changelog-generator-action@v2.3
               id: Changelog
               with:
                 token: ${{ secrets.GITHUB_TOKEN }}
