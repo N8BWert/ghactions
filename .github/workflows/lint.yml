@@ -1,0 +1,23 @@
+name: Linter
+run-name: Linting
+on: [push]
+jobs:
+    golangci-lint:
+        runs-on: ubuntu-latest
+        container:
+            image: golangci/golangci-lint:latest@sha256:1e0e2867b387bf68762427db499a963e43582b06819992db205fc31daa75ceea
+        steps:
+            - name: Check out Repository
+              uses: actions/checkout@v3
+            - name: Use Golang CI Linter
+              run: golangci-lint run -v --timeout 5m0s
+
+    shellcheck-lint:
+        runs-on: ubuntu-latest
+        container:
+            image: koalaman/shellcheck-alpine:stable@sha256:f73b035c8ebfc8a66ba54e07af5cc41e790cf41fff45317914b1ce677dd9cada
+        steps:
+            - name: Check out Repository
+              uses: actions/checkout@v3
+            - name: Use Shellcheck CI Linter
+              run: shellcheck **/*.sh
