@@ -14,6 +14,13 @@ jobs:
               id: Changelog
               with:
                 token: ${{ secrets.GITHUB_TOKEN }}
+            - name: Create random artifacts
+              run: |
+                mkdir downloads && cd downloads
+                echo 'alpha' > alpha.txt
+                echo 'bravo' > bravo.txt
+                echo 'charlie' > charlie.txt
+                cd ..
             - name: Create Release
               id: create_release
               uses: actions/create-release@latest
