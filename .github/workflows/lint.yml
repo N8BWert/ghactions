@@ -4,13 +4,13 @@ on: [push]
 jobs:
     golangci-lint:
         runs-on: ubuntu-latest
-        container:
-            image: golangci/golangci-lint:latest@sha256:1e0e2867b387bf68762427db499a963e43582b06819992db205fc31daa75ceea
         steps:
             - name: Check out Repository
               uses: actions/checkout@v3
-            - name: Use Golang CI Linter
-              run: golangci-lint run -v --timeout 5m0s
+            - name: golangci-lint
+              uses: golangci/golangci-lint-action@v3
+              with:
+                version: v1.53
 
     shellcheck-lint:
         runs-on: ubuntu-latest
@@ -19,5 +19,5 @@ jobs:
         steps:
             - name: Check out Repository
               uses: actions/checkout@v3
-            - name: Use Shellcheck CI Linter
-              run: shellcheck **/*.sh
+            - name: Run ShellCheck
+              uses: ludeeus/action-shellcheck@master
