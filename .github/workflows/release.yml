@@ -1,3 +1,5 @@
+name: Release
+run-name: Create Release For GHactions
 on:
     push:
         tags:
