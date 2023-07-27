@@ -18,14 +18,12 @@ jobs:
               run: |
                 mkdir downloads && cd downloads
                 echo 'alpha' > alpha.txt
-                echo 'bravo' > bravo.txt
-                echo 'charlie' > charlie.txt
                 cd ..
-            - name: Upload artifacts
-              uses: actions/upload-artifact@v2
+            - name: Upload Artifacts
+              uses: softprops/action-gh-release@v1
               with:
-                name: assets-for-download
-                path: downloads
+                files: |
+                  downloads/alpha.txt
             - name: Create Release
               id: create_release
               uses: actions/create-release@latest
