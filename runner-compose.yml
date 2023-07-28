@@ -1,0 +1,6 @@
+version: "3"
+services:
+
+  random_alpine:
+    image: alpine:latest
+    command: echo "test"
