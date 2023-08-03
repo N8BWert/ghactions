@@ -12,7 +12,7 @@ jobs:
               uses: actions/checkout@v3
 
             - name: Set Up Git
-              run: apt-get update && apt-get install -y git
+              run: sudo apt-get update && apt-get install -y git
 
             - name: Sync GitLab Repo
               uses: net-engine/github-repository-sync-action@v1
