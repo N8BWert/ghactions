@@ -13,8 +13,15 @@ jobs:
               with:
                 fetch-depth: 0
 
+            # - name: Sync GitLab Repo
+            #   run: |
+            #     git remote add gitlab https://${{ secrets.GITLAB_USERNAME }}:${{ secrets.GITLAB_TOKEN }}@gitlab.com/N8BWert/ghactions.git
+            #     git fetch gitlab
+            #     git push -f gitlab main
+
             - name: Sync GitLab Repo
-              run: |
-                git remote add gitlab https://${{ secrets.GITLAB_USERNAME }}:${{ secrets.GITLAB_TOKEN }}@gitlab.com/N8BWert/ghactions.git
-                git fetch gitlab
-                git push -f gitlab main
+              uses: wangchucheng/git-repo-sync@v0.1.0
+              with:
+                target-url: "https://gitlab.com/N8BWert/ghactions.git"
+                target-username: ${{ secrets.GITLAB_USERNAME }}
+                target-token: ${{ secrets.GITLAB_TOKEN }}
