@@ -15,4 +15,4 @@ jobs:
               run: |
                 git remote add gitlab https://gitlab.com/N8BWert/ghactions.git
                 git fetch gitlab
-                git push --mirror gitlab main
+                git push gitlab main
