@@ -13,6 +13,6 @@ jobs:
 
             - name: Sync GitLab Repo
               run: |
-                git remote add gitlab https://gitlab.com/N8BWert/ghactions.git
+                git remote add gitlab https://${{ secrets.GITLAB_USERNAME }}:${{ secrets.GITLAB_TOKEN }}@gitlab.com/N8BWert/ghactions.git
                 git fetch gitlab
                 git push gitlab main
