@@ -15,4 +15,4 @@ jobs:
               run: |
                 git remote add gitlab https://${{ secrets.GITLAB_USERNAME }}:${{ secrets.GITLAB_TOKEN }}@gitlab.com/N8BWert/ghactions.git
                 git fetch gitlab
-                git push gitlab main
+                git push -f gitlab main
